@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Filme} from '../../filme';
+import {FilmeServiceService} from '../filme-service.service';
 
 @Component({
   selector: 'app-listar',
@@ -11,14 +12,15 @@ export class ListarComponent implements OnInit {
 
   filmes: Observable<Filme[]>;
 
-  constructor() { }
+  constructor(private filmesService: FilmeServiceService) { }
 
   ngOnInit() {
+    this.reloadData();
   }
 
-  reloadData(){
+  reloadData() {
 
-    this.filmes = this.FilmesService.getFilmesList();
+    this.filmes = this.filmesService.getFilmeList();
 
   }
 

@@ -7,20 +7,20 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FilmeServiceService {
 
-  private baseUrl = 'http://localhost:8080/filme/'
+  private baseUrl = 'http://localhost:8080/filme/';
 
 
   constructor(private http: HttpClient) { }
 
   getFilme(id: number): Observable<any> {
-    return  this.http.get('${this.baseUrl}/${id}')
+    return  this.http.get('${this.baseUrl}/${id}');
 
   }
 
 
-  getFilmeList(): Observable<any>{
+  getFilmeList(): Observable<any> {
 
-    return.this.http.get('${this.baseUrl}')
+    return this.http.get('${this.baseUrl}/listar-filmes');
   }
 
 }
